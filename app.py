@@ -13,6 +13,7 @@ from app.models.rol import RolModel
 from app.models.user import UserModel 
 from app.models.hospital import HospitalModel 
 from app.models.patient import PatientModel 
+from app.models.doctor import DoctorModel 
 
 app = Flask(__name__)
 
@@ -37,7 +38,7 @@ jwt = JWT(app, authenticate, identity)
 api.add_resource(UserRegister, '/register')
 
 if __name__ == '__main__':
-    from config.db import db  #Avoid circular import
+    from config.db import db  
     db.init_app(app)
     # debug=False for produccion 
     mail.init_app(app)
